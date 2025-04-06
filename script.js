@@ -1,46 +1,42 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const productos = [
-    {
-      nombre: "Auriculares Bluetooth In-ear F11 Pro Fan Pro Superior F9-5",
-      descripcion: "Monaural, True Wireless, Estuche de carga, Micrófono incorporado, Cómodo y práctico.",
-      precio: "$15.000",
-      imagen: "https://http2.mlstatic.com/D_NQ_NP_822807-MLA81859076734_012025-O.webp"
-    },
-    {
-      nombre: "Mochila Urbana",
-      descripcion: "Impermeable, 20L, cierre, compartimento para notebook, bolsillo para botella.",
-      precio: "$60.000",
-      imagen: "https://http2.mlstatic.com/D_NQ_NP_926983-MLA82368822189_022025-O.webp"
-    },
-    {
-      nombre: "Balanza Digital 10kg Multiuso Precisión Portátil",
-      descripcion: "Función Tara, 10kg, 2 pilas AA, base antideslizante, auto apagado.",
-      precio: "$15.000",
-      imagen: "https://http2.mlstatic.com/D_NQ_NP_668425-MLU75357343151_032024-O.webp"
-    },
-    {
-      nombre: "Remera Lisa Algodón Jersey Peinado Premium",
-      descripcion: "Tees Factory, Manga corta, Hombre, Adultos, Liso.",
-      precio: "$18.500",
-      imagen: "https://http2.mlstatic.com/D_NQ_NP_873697-MLA78122763242_082024-O.webp"
-    }
-  ];
+// Lista de productos (podés mover esto a un archivo JSON si querés)
+const productos = [
+  {
+    nombre: "Auriculares Bluetooth",
+    precio: "$5.500",
+    imagen: "https://via.placeholder.com/150",
+    descripcion: "Auriculares inalámbricos con excelente sonido.",
+    enlace: "https://wa.me/541170809692?text=Hola!%20Quiero%20comprar%20los%20Auriculares%20Bluetooth"
+  },
+  {
+    nombre: "Reloj Inteligente",
+    precio: "$12.000",
+    imagen: "https://via.placeholder.com/150",
+    descripcion: "Control de salud, notificaciones y más.",
+    enlace: "https://wa.me/541170809692?text=Hola!%20Estoy%20interesado%20en%20el%20Reloj%20Inteligente"
+  },
+  {
+    nombre: "Cámara de Seguridad WiFi",
+    precio: "$9.900",
+    imagen: "https://via.placeholder.com/150",
+    descripcion: "Monitoreo desde tu celular, fácil instalación.",
+    enlace: "https://wa.me/541170809692?text=Hola!%20Quiero%20más%20info%20de%20la%20Cámara%20de%20Seguridad"
+  }
+];
 
-  const container = document.getElementById("productos-container");
+// Mostrar los productos en el HTML
+const contenedor = document.getElementById("productos-container");
 
-  productos.forEach(prod => {
-    const card = document.createElement("article");
-    card.className = "producto";
-    card.innerHTML = \`
-      <figure>
-        <img src="\${prod.imagen}" alt="\${prod.nombre}" />
-        <figcaption>
-          <p class="nombre">\${prod.nombre}</p>
-          <p>\${prod.descripcion}</p>
-          <p class="precio">Precio: \${prod.precio}</p>
-        </figcaption>
-      </figure>
-    \`;
-    container.appendChild(card);
-  });
+productos.forEach(producto => {
+  const card = document.createElement("div");
+  card.classList.add("producto");
+
+  card.innerHTML = `
+    <img src="${producto.imagen}" alt="${producto.nombre}" />
+    <h3>${producto.nombre}</h3>
+    <p>${producto.descripcion}</p>
+    <p class="precio">${producto.precio}</p>
+    <a href="${producto.enlace}" target="_blank" class="boton">Comprar por WhatsApp</a>
+  `;
+
+  contenedor.appendChild(card);
 });
